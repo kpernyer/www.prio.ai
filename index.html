@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>prio.ai — Growth Operating System</title>
+    <meta name="description" content="The Growth Operating System that aligns humans and AI agents — so sales, marketing, campaigns, and strategy move as one.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --paper: #f7f5f0;
+            --ink: #1a1a1a;
+            --ink-light: #4a4a4a;
+            --ink-faint: #8a8a8a;
+            --accent: #2d5a3d;
+            --rule: #d4d0c8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 18px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: 'Source Serif 4', Georgia, serif;
+            background: var(--paper);
+            color: var(--ink);
+            line-height: 1.7;
+            padding: 0 1.5rem;
+        }
+
+        .container {
+            max-width: 640px;
+            margin: 0 auto;
+            padding: 4rem 0 6rem;
+        }
+
+        /* Masthead */
+        header {
+            margin-bottom: 5rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--rule);
+        }
+
+        .wordmark {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--ink);
+        }
+
+        .wordmark span {
+            color: var(--accent);
+        }
+
+        /* Hero */
+        .hero {
+            margin-bottom: 4rem;
+        }
+
+        .hero h1 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            line-height: 1.4;
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .hero-lead {
+            font-size: 1.1rem;
+            color: var(--ink-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-statement {
+            font-size: 1rem;
+            border-left: 2px solid var(--accent);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-marker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--ink-faint);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .section-marker::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: var(--rule);
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.01em;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Contrast block */
+        .contrast-block {
+            background: #f0ede6;
+            padding: 1.5rem 1.75rem;
+            margin: 2rem 0;
+            border-radius: 2px;
+        }
+
+        .contrast-block p {
+            font-size: 0.95rem;
+        }
+
+        /* Tension pairs table */
+        .tension-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        .tension-table td {
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--rule);
+            vertical-align: top;
+        }
+
+        .tension-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .tension-table td:first-child {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--ink-faint);
+            width: 30%;
+            padding-right: 1rem;
+        }
+
+        .tension-table td:last-child {
+            color: var(--ink-light);
+        }
+
+        /* Inline emphasis */
+        .emphasis {
+            font-weight: 500;
+        }
+
+        .quiet {
+            color: var(--ink-light);
+        }
+
+        /* Quote */
+        blockquote {
+            font-style: italic;
+            border-left: 2px solid var(--rule);
+            padding-left: 1.25rem;
+            margin: 2rem 0;
+            color: var(--ink-light);
+        }
+
+        blockquote cite {
+            display: block;
+            font-style: normal;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            margin-top: 0.75rem;
+            color: var(--ink-faint);
+        }
+
+        /* Capabilities list */
+        .capabilities {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem 2rem;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .capabilities span {
+            color: var(--ink-light);
+            padding: 0.25rem 0;
+        }
+
+        @media (max-width: 480px) {
+            .capabilities {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Outcomes */
+        .outcomes {
+            margin: 2rem 0;
+        }
+
+        .outcome-item {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .outcome-marker {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--accent);
+            flex-shrink: 0;
+            padding-top: 0.15rem;
+        }
+
+        .outcome-text {
+            color: var(--ink-light);
+        }
+
+        /* Close section */
+        .close {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+        }
+
+        .close p {
+            font-size: 1.05rem;
+        }
+
+        .close .final {
+            font-weight: 500;
+            color: var(--ink);
+            margin-top: 1.5rem;
+        }
+
+        /* CTA link */
+        .cta-link {
+            display: inline-block;
+            margin-top: 2rem;
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            letter-spacing: 0.05em;
+            color: var(--accent);
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            border: 1px solid var(--accent);
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .cta-link:hover {
+            background: var(--accent);
+            color: var(--paper);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 5rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--rule);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--ink-faint);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        footer a {
+            color: var(--ink-faint);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--ink-light);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="wordmark">prio<span>.ai</span></div>
+        </header>
+
+        <section class="hero">
+            <h1>The Growth Operating System</h1>
+            <p class="hero-lead">Fast-growing companies don't fail because they lack ideas.<br>They fail because speed creates drift.</p>
+            <p class="hero-statement">prio.ai aligns humans and AI agents around shared intelligence — so sales, marketing, campaigns, and strategy move as one. No more lost in translation.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">The shift</div>
+            <h2>AI has changed the rules.</h2>
+            <p>The distance between an idea and a live service is shorter than ever. Anyone can build. Anyone can launch.</p>
+            <p>What decides who wins is who moves first — and stays coherent while doing it.</p>
+            <p class="emphasis">Speed at any price is not the advantage. Aligned speed is.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">The problem</div>
+            <h2>Lost in translation</h2>
+            <p>As companies grow faster, communication breaks down:</p>
+            <table class="tension-table">
+                <tr>
+                    <td>Sales</td>
+                    <td>says one thing to customers</td>
+                </tr>
+                <tr>
+                    <td>Marketing</td>
+                    <td>tells a different story</td>
+                </tr>
+                <tr>
+                    <td>Strategy</td>
+                    <td>lives in a document no one reads</td>
+                </tr>
+                <tr>
+                    <td>AI agents</td>
+                    <td>generate content without context</td>
+                </tr>
+            </table>
+            <p>Every handoff loses meaning. Every tool creates its own version of truth.</p>
+            <div class="contrast-block">
+                <p>The faster you move, the more you drift apart.</p>
+                <p>prio.ai exists to keep you aligned.</p>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-marker">The solution</div>
+            <h2>Shared Intelligence</h2>
+            <p>At the heart of prio.ai is a living intelligence layer — a common understanding that everyone and everything draws from.</p>
+            <p>Your company. Your customers. Your market. Your priorities.</p>
+            <p class="emphasis">One source of truth that humans and AI agents share.</p>
+            <p class="quiet">When a sales conversation happens, marketing knows. When strategy shifts, campaigns adapt. When anyone asks a question, they get the same answer.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">How it works</div>
+            <h2>One system, many capabilities</h2>
+            <p>prio.ai brings together what fast-growing companies need:</p>
+            <div class="capabilities">
+                <span>Relationship management</span>
+                <span>Campaign orchestration</span>
+                <span>Cross-channel communication</span>
+                <span>Marketing & social</span>
+                <span>Strategy execution</span>
+                <span>AI agent coordination</span>
+            </div>
+            <p>Not separate tools stitched together. One system with different views.</p>
+            <p class="emphasis">Communication first. Common understanding always.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">AI-first</div>
+            <h2>Built for where growth is going</h2>
+            <blockquote>
+                I skate to where the puck is going to be, not where it has been.
+                <cite>Wayne Gretzky</cite>
+            </blockquote>
+            <p>AI is not an add-on in prio.ai. It is part of the system from the start.</p>
+            <p>As models improve, prio.ai improves with them — without changing how you work.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">For growth teams</div>
+            <h2>Built for how you actually work</h2>
+            <p>Fast-growing companies operate in motion. They experiment. They pivot. They move before the plan is perfect.</p>
+            <p>prio.ai doesn't force you into rigid workflows. It adapts to your pace while keeping everyone pointed in the same direction.</p>
+            <p class="quiet">Your AI agents work from the same playbook as your team. Your campaigns reflect your latest thinking. Your customer conversations stay consistent.</p>
+        </section>
+
+        <section>
+            <div class="section-marker">The outcome</div>
+            <h2>What changes</h2>
+            <div class="outcomes">
+                <div class="outcome-item">
+                    <span class="outcome-marker">&rarr;</span>
+                    <span class="outcome-text">Nothing gets lost in translation</span>
+                </div>
+                <div class="outcome-item">
+                    <span class="outcome-marker">&rarr;</span>
+                    <span class="outcome-text">AI agents amplify your intent instead of creating noise</span>
+                </div>
+                <div class="outcome-item">
+                    <span class="outcome-marker">&rarr;</span>
+                    <span class="outcome-text">Strategy stays alive in daily execution</span>
+                </div>
+                <div class="outcome-item">
+                    <span class="outcome-marker">&rarr;</span>
+                    <span class="outcome-text">Fast decisions don't create long-term drift</span>
+                </div>
+            </div>
+            <p class="emphasis">You move faster. Together.</p>
+        </section>
+
+        <section class="close">
+            <p class="quiet">Communication and common understanding is the first priority.</p>
+            <p class="final">prio.ai makes it automatic.</p>
+            <a href="mailto:hello@prio.ai" class="cta-link">Get in touch</a>
+        </section>
+
+        <footer>
+            <span>&copy; 2025 prio.ai</span>
+            <span>A product of <a href="https://aprio.one">aprio</a></span>
+        </footer>
+    </div>
+</body>
+</html>
